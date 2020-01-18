@@ -14062,7 +14062,7 @@ parameters:</p>
 				<input type="text" {{/*name="code"*/}} disabled id="code" value="{{.Site.Code}}">
 				{{validate "site.code" .Validate}}
 				<span class="help">You will access your account at https://<em>[my_code]</em>.{{.Domain}}.<br>
-				Changing this isn’t implemented yet; contact
+					Changing this isn’t implemented yet; contact
 					<a href="mailto:support@goatcounter.com">support@goatcounter.com</a>
 					if you want to change it.
 				</span>
@@ -14078,6 +14078,11 @@ parameters:</p>
 				<label>{{checkbox .Site.Settings.Public "settings.public"}}
 					Make statistics publicly viewable</label>
 				<span>Anyone can view the statistics without logging in.</span>
+
+				<label>Ignore IPs</label>
+				<input type="text" name="settings.ignore_ips" value="{{.Site.Settings.IgnoreIPs}}">
+				<span>Never count requests coming from these IP addresses.<br>
+					Comma-separated. Only supports exact matches.</span>
 			</fieldset>
 
 			<fieldset>

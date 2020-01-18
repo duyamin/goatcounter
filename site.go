@@ -17,6 +17,7 @@ import (
 	"github.com/teamwork/guru"
 	"zgo.at/goatcounter/cfg"
 	"zgo.at/utils/jsonutil"
+	"zgo.at/utils/sqlutil"
 	"zgo.at/zdb"
 	"zgo.at/zhttp"
 	"zgo.at/zlog"
@@ -60,9 +61,10 @@ type Site struct {
 }
 
 type SiteSettings struct {
-	Public          bool   `json:"public"`
-	TwentyFourHours bool   `json:"twenty_four_hours"`
-	DateFormat      string `json:"date_format"`
+	Public          bool               `json:"public"`
+	TwentyFourHours bool               `json:"twenty_four_hours"`
+	DateFormat      string             `json:"date_format"`
+	IgnoreIPs       sqlutil.StringList `json:"ignore_ips"`
 	Limits          struct {
 		Page int `json:"page"`
 		Ref  int `json:"ref"`
